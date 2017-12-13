@@ -13,6 +13,8 @@ class Station
     end
   end
 
+  
+
   private
 
   def self.nrel
