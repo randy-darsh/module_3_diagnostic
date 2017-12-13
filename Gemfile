@@ -15,6 +15,10 @@ gem 'figaro'
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
+  gem 'launchy'
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'database_cleaner'
 end
 
 group :development do
