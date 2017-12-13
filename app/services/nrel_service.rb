@@ -13,12 +13,12 @@ class NrelService
   # this works for finding the nearest 10 stations now
   # https://api.data.gov/nrel/alt-fuel-stations/v1/nearest.json?fuel_type=LPG,ELEC&location=80203&radius=6&limit=10&api_key=yEtMH5JrzYgDAYJv1iobx3sqqgaEGWvYSrOUQg1O
   private
-  
+
   attr_reader :connection
-  
+
   def get_json(url)
     response = connection.get(url)
-    JSON.parse(stations_by_zip.body, symbolize_names: true)[:fuel_stations]
+    response.parse(stations_by_zip.body, symbolize_names: true)[:fuel_stations]
     # JSON.parse(response.body, symbolize_names: true)
   end
 end
