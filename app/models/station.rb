@@ -1,10 +1,12 @@
 class Station
   def initialize(attributes = {})
-    @name = attributes[:name]
-    @address = attributes[:address]
-    @fuel_type_code = attributes[:fuel_type_code]
-    @access_days_time = attributes[:access_days_time]
-    @zip_code = attributes[:zip]
+    @name = attributes[:station_name]
+    @street_address = attributes[:street_address]
+    @state = attributes[:state]
+    @zip = attributes[:zip]
+    @fuel_types = attributes[:fuel_type_code]
+    @distance = attributes[:distance]
+    @access_times = attributes[:access_days_time]
   end
 
   def self.stations_by_zip_code(zip_code)
@@ -12,8 +14,6 @@ class Station
       Station.new(raw_station)
     end
   end
-
-  
 
   private
 
