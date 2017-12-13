@@ -18,7 +18,7 @@ class NrelService
 
   def get_json(url)
     response = connection.get(url)
-    response.parse(stations_by_zip.body, symbolize_names: true)[:fuel_stations]
+    JSON.parse(response.body, symbolize_names: true)[:fuel_stations]
     # JSON.parse(response.body, symbolize_names: true)
   end
 end
