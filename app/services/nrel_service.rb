@@ -5,8 +5,8 @@ class NrelService
     end
   end
 
-  def stations_by_fuel_type(fuel_type)
-    get_json("/api/alt-fuel-stations/v1.json?fuel_type=#{fuel_type}&limit=10&api_key=yEtMH5JrzYgDAYJv1iobx3sqqgaEGWvYSrOUQg1O&format=JSON")[:results]
+  def stations_by_zip(zip_code)
+    get_json("/api/alt-fuel-stations/v1.json?zip=#{zip_code}?fuel_type=E85,ELEC&limit=10&api_key=yEtMH5JrzYgDAYJv1iobx3sqqgaEGWvYSrOUQg1O&format=JSON")[:results]
   end
 
   private

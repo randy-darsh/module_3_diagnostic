@@ -1,5 +1,5 @@
 class SearchController < ApplicationController
   def index
-    @stations = Station.closest_ten(params[:zip_code])
+    @stations = Station.stations_by_zip_code(params[:zip])
   end
 end
