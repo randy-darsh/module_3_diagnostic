@@ -4,14 +4,20 @@ describe 'User visits the root page' do
   it 'they can type in a zip code and see the closest stations within 6 miles' do
     visit root_path
 
-    within("input#q.form-control") do
-      fill_in 'input', with: "80203"
-    end
+    fill_in "q", with: 80203
 
     click_on "Locate"
 
-    expect(current_path).to eq("/search?=80203")
-    expect(page).to have_content("things")
+    expect(current_path).to eq("/search")
+    expect(page).to have_css(".station", count: 10)
+
+    within(first(".station")) do
+      expect(page).to have_css(".name")
+      expect(page).to have_css(".address")
+      expect(page).to have_css(".fuel_types")
+      expect(page).to have_css(".distance")
+      expect(page).to have_css(".access_times")
+    end
   end
 end
 
