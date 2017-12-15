@@ -1,5 +1,5 @@
 class SearchController < ApplicationController
   def index
-    @stations = Station.stations_by_zip_code(params[:q])
+    @stations = NrelService.new({location: params[:q]}).stations
   end
 end
