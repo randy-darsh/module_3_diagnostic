@@ -1,5 +1,8 @@
 class Station
+  attr_reader :name, :street_address, :fuel_types, :distance, :access_times
+
   def initialize(attributes = {})
+    @attributes = attributes
     @name = attributes[:station_name]
     @street_address = attributes[:street_address]
     @state = attributes[:state]
@@ -9,15 +12,14 @@ class Station
     @access_times = attributes[:access_days_time]
   end
 
-  def self.stations_by_zip_code(zip_code)
-    nrel.stations_by_zip(zip_code).map do |raw_station|
-      Station.new(raw_station)
-    end
+  
+  def street_address
+    "#{@attributes[:street_address]}, #{@attributes[:city]}, #{@attributes[:state]} #{@attributes[:zip]}"
   end
-
-  private
-
-  def self.nrel
-    NrelService.new
-  end
+  
+  # def self.stations_by_zip_code(zip_code)
+  #   nrel.stations_by_zip(zip_code).map do |raw_station|
+  #     Station.new(raw_station)
+  #   end
+  # end
 end
